@@ -14,8 +14,10 @@ struct WelcomeView: View {
                 
             }
         }
-        .onTapGesture {
-            isActive = true
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                isActive = true
+            }
         }
         .navigationDestination(isPresented: $isActive) {
             EmotionSelectionView()

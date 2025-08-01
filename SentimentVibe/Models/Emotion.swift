@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum Emotion: String, CaseIterable, Identifiable {
+enum Emotion: String, Codable, CaseIterable, Identifiable {
     case happy
     case sad
     case angry

@@ -1,6 +1,10 @@
 import SwiftUI
 
 struct EmotionSelectionView: View {
+    @State private var isShowingHistory = false
+    @State private var isShowingFavorites = false
+    @State private var isShowingBreathingExercise = false
+
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -22,11 +26,49 @@ struct EmotionSelectionView: View {
                     }
                 }
                 .padding()
+
+                // Breathing Exercise Button
+                Button(action: {
+                    isShowingBreathingExercise = true
+                }) {
+                    HStack {
+                        Image(systemName: "wind")
+                        Text("Try a Breathing Exercise")
+                    }
+                    .font(.system(size: 16, weight: .medium, design: .rounded))
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue.gradient)
+                    .cornerRadius(15)
+                    .padding([.horizontal, .bottom])
+                }
+
             }
             .padding(.vertical)
         }
         .navigationTitle("Select Mood")
         .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
+    .toolbar {
+        ToolbarItemGroup(placement: .navigationBarTrailing) {
+            Button(action: { isShowingFavorites = true }) {
+                Image(systemName: "heart.fill")
+            }
+
+            Button(action: { isShowingHistory = true }) {
+                Image(systemName: "list.bullet.rectangle.portrait")
+            }
+        }
+    }
+    .sheet(isPresented: $isShowingHistory) {
+        MoodHistoryView()
+    }
+    .sheet(isPresented: $isShowingFavorites) {
+        FavoritesView()
+    }
+    .sheet(isPresented: $isShowingBreathingExercise) {
+        BreathingExerciseView()
+    }
     }
 }
 

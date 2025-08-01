@@ -4,6 +4,7 @@ struct ContentSuggestionsView: View {
     let emotion: Emotion
     @StateObject private var viewModel = ContentViewModel()
     @State private var showEmotionSelection = false
+    @State private var isMoodLogged = false
     
     var body: some View {
         ScrollView {
@@ -49,6 +50,25 @@ struct ContentSuggestionsView: View {
                         ContentItemCard(item: article, emotion: emotion)
                     }
 
+                    // Log mood button
+                    Button(action: {
+                        if !isMoodLogged {
+                            PersistenceManager.shared.save(moodLog: MoodLog(emotion: emotion))
+                            isMoodLogged = true
+                        }
+                    }) {
+                        HStack {
+                            Image(systemName: isMoodLogged ? "checkmark.circle.fill" : "plus.circle.fill")
+                            Text(isMoodLogged ? "Mood Logged" : "Log This Mood")
+                        }
+                        .font(.system(size: 16, weight: .medium, design: .rounded))
+                        .foregroundColor(isMoodLogged ? .green : emotion.color)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(isMoodLogged ? Color.green.opacity(0.15) : emotion.color.opacity(0.15))
+                        .cornerRadius(15)
+                        .padding(.horizontal)
+                    }.disabled(isMoodLogged)
 
                 }
                 

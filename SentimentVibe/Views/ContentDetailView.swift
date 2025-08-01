@@ -5,7 +5,8 @@ struct ContentDetailView: View {
     let item: ContentItem
     let emotion: Emotion
     @State private var showSafari = false
-    
+    @State private var isFavorite = false
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
@@ -79,8 +80,22 @@ struct ContentDetailView: View {
         .navigationTitle(item.type.rawValue.capitalized)
         .navigationBarTitleDisplayMode(.inline)
         .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
+    .toolbar {
+        ToolbarItem(placement: .navigationBarTrailing) {
+            Button(action: {
+                PersistenceManager.shared.toggleFavorite(item: item)
+                isFavorite.toggle()
+            }) {
+                Image(systemName: isFavorite ? "heart.fill" : "heart")
+                    .foregroundColor(isFavorite ? .red : .gray)
+            }
+        }
+    }
         .sheet(isPresented: $showSafari) {
             SafariView(url: URL(string: item.url) ?? URL(string: "https://www.apple.com")!)
+        }
+        .onAppear {
+            isFavorite = PersistenceManager.shared.isFavorite(item: item)
         }
     }
     
