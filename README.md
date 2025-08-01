@@ -48,4 +48,4 @@ SentimentVibe is an iOS application that provides personalized content recommend
 
 ## Credits
 
-Created by m_959058
+Created by SentimentSync
