@@ -48,7 +48,15 @@ struct EmotionSelectionView: View {
             .padding(.vertical)
         }
         .navigationTitle("Select Mood")
-        .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
+        .background(LinearGradient(
+            gradient: Gradient(colors: [
+                Color(red: 0.85, green: 0.92, blue: 0.98),  // Light blue
+                Color(red: 0.96, green: 0.87, blue: 0.89)   // Light pink
+            ]),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        .edgesIgnoringSafeArea(.all))
     .toolbar {
         ToolbarItemGroup(placement: .navigationBarTrailing) {
             Button(action: { isShowingFavorites = true }) {

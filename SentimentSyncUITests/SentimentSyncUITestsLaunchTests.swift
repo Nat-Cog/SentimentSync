@@ -1,13 +1,13 @@
 //
-//  SentimentVibeUITestsLaunchTests.swift
-//  SentimentVibeUITests
+//  SentimentSyncUITestsLaunchTests.swift
+//  SentimentSyncUITests
 //
 //  Created by m_959058 on 7/31/25.
 //
 
 import XCTest
 
-final class SentimentVibeUITestsLaunchTests: XCTestCase {
+final class SentimentSyncUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

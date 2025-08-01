@@ -1,6 +1,6 @@
-# SentimentVibe - Mood-Based Content Suggestion iOS App
+# SentimentSync - Mood-Based Content Suggestion iOS App
 
-SentimentVibe is an iOS application that provides personalized content recommendations based on your current emotional state. Built using SwiftUI, the app offers a seamless user experience with dynamic content presentation for various emotions.
+SentimentSync is an iOS application that provides personalized content recommendations based on your current emotional state. Built using SwiftUI, the app offers a seamless user experience with dynamic content presentation for various emotions.
 
 ## Features
 

@@ -1,13 +1,13 @@
 //
-//  SentimentVibeUITests.swift
-//  SentimentVibeUITests
+//  SentimentSyncUITests.swift
+//  SentimentSyncUITests
 //
 //  Created by m_959058 on 7/31/25.
 //
 
 import XCTest
 
-final class SentimentVibeUITests: XCTestCase {
+final class SentimentSyncUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
