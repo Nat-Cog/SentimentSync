@@ -29,9 +29,22 @@
 		21D03BC32E3C410B00FB8F88 /* SentimentVibeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SentimentVibeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		21D03BF32E3C468500FB8F88 /* Exceptions for "SentimentVibe" folder in "SentimentVibe" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Preview Content/Resources/ContentData.json",
+			);
+			target = 21D03BA82E3C410200FB8F88 /* SentimentVibe */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		21D03BAB2E3C410200FB8F88 /* SentimentVibe */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				21D03BF32E3C468500FB8F88 /* Exceptions for "SentimentVibe" folder in "SentimentVibe" target */,
+			);
 			path = SentimentVibe;
 			sourceTree = "<group>";
 		};
