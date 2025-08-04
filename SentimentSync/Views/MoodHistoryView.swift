@@ -22,7 +22,7 @@ struct MoodHistoryView: View {
                             VStack(alignment: .leading) {
                                 Text(log.emotion.title)
                                     .font(.headline)
-                                Text(log.date, style: .date)
+                                Text(log.date.formatted(date: .long, time: .shortened))
                                     .font(.subheadline)
                                     .foregroundColor(.secondary)
                             }
