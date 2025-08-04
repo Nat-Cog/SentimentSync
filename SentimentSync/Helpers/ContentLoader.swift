@@ -29,7 +29,7 @@ class ContentLoader {
         return allContent.filter { $0.emotion == emotion.rawValue }
     }
     
-    static func getContentByType(for emotion: Emotion, type: ContentItem.ContentType, from allContent: [ContentItem]) -> ContentItem? {
+    static func getContentByType(for emotion: Emotion, type: ContentType, from allContent: [ContentItem]) -> ContentItem? {
         return allContent.first { $0.emotion == emotion.rawValue && $0.type == type }
     }
 } 
