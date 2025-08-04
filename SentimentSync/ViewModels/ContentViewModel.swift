@@ -32,7 +32,7 @@ class ContentViewModel: ObservableObject {
         contentForEmotion = ContentLoader.getContent(for: emotion, from: allContent)
     }
     
-    func getContentByType(for emotion: Emotion, type: ContentType) -> ContentItem? {
+    func getContentByType(for emotion: Emotion, type: ContentItem.ContentType) -> ContentItem? {
         return ContentLoader.getContentByType(for: emotion, type: type, from: allContent)
     }
     

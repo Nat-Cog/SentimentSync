@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 struct FavoritesView: View {
     @State private var favoriteItems: [ContentItem] = []
 

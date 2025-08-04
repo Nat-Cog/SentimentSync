@@ -1,3 +1,10 @@
+//
+//  ContentView.swift
+//  SentimentSync
+//
+//  Created by m_959058 on 7/31/25.
+//
+
 import SwiftUI
 
 struct ContentView: View {
