@@ -140,15 +140,19 @@ struct ArtAndCraftView: View {
         let renderer = ImageRenderer(content: viewToRender)
         renderer.scale = UIScreen.main.scale // Use screen scale for high resolution
 
+        // Since the background is solid white, the image is opaque.
+        // Setting this to true optimizes the image and prevents the unnecessary alpha channel.
+        renderer.isOpaque = true
+
         if let image = renderer.uiImage {
-            let imageSaver = ImageSaver()
-            imageSaver.writeToPhotoAlbum(image: image)
-            imageSaver.onSuccess = {
-                confirmationMessage = "Your artwork has been saved to your Photos."
-                showConfirmation = true
-            }
-            imageSaver.onError = { error in
-                confirmationMessage = "Oops! Could not save image. Please ensure you have granted photo library access in Settings. \(error.localizedDescription)"
+            Task {
+                do {
+                    // A new instance is created for each save operation.
+                    try await ImageSaver().writeToPhotoAlbum(image: image)
+                    confirmationMessage = "Your artwork has been saved to your Photos."
+                } catch {
+                    confirmationMessage = "Oops! Could not save image. Please ensure you have granted photo library access in Settings. \(error.localizedDescription)"
+                }
                 showConfirmation = true
             }
         } else {
@@ -167,20 +171,24 @@ struct CanvasRectPreferenceKey: PreferenceKey {
 }
 
 // Helper class to save an image to the photo library and handle callbacks.
-class ImageSaver: NSObject {
-    var onSuccess: (() -> Void)?
-    var onError: ((Error) -> Void)?
+class ImageSaver: NSObject {    
+    private var continuation: CheckedContinuation<Void, Error>?
 
-    func writeToPhotoAlbum(image: UIImage) {
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
+    /// Asynchronously writes an image to the photo album.
+    func writeToPhotoAlbum(image: UIImage) async throws {
+        try await withCheckedThrowingContinuation { continuation in
+            self.continuation = continuation
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
+        }
     }
 
     @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
-            onError?(error)
+            continuation?.resume(throwing: error)
         } else {
-            onSuccess?()
+            continuation?.resume(returning: ())
         }
+        continuation = nil
     }
 }
 

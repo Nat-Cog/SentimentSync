@@ -14,90 +14,88 @@ struct EmotionSelectionView: View {
     ]
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                Text("How are you feeling today?")
-                    .font(.system(size: 28, weight: .bold, design: .rounded))
+        // By placing the navigationDestination on a container outside the ScrollView,
+        // we ensure it's always in the view hierarchy and not subject to the lazy
+        // loading behavior of the ScrollView's content. This resolves the warning.
+        Group {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("How are you feeling today?")
+                        .font(.system(size: 28, weight: .bold, design: .rounded))
+                        .padding(.horizontal)
+                    
+                    
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(Emotion.allCases) { emotion in
+                            NavigationLink(destination: ContentSuggestionsView(emotion: emotion)) {
+                                EmotionCell(emotion: emotion)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                        }
+                    }
+                    .padding()
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Or describe it in your own words")
+                            .font(.system(size: 16, weight: .semibold, design: .rounded))
+                            .foregroundColor(.secondary)
+
+                        HStack {
+                            TextField("e.g., 'I feel a bit stressed today'", text: $userMoodText)
+                                .padding(12)
+                                .background(Color(.systemGroupedBackground))
+                                .cornerRadius(10)
+                                .onSubmit(determineMood)
+
+                            Button(action: determineMood) {
+                                Image(systemName: "arrow.right.circle.fill")
+                                    .font(.title)
+                                    .foregroundColor(.accentColor)
+                            }
+                            .disabled(userMoodText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                        }
+                    }
                     .padding(.horizontal)
-                
-                
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(Emotion.allCases) { emotion in
-                        NavigationLink(destination: ContentSuggestionsView(emotion: emotion)) {
-                            EmotionCell(emotion: emotion)
+
+                    VStack(spacing: 15) {
+                        // Breathing Exercise Button
+                        Button(action: {
+                            isShowingBreathingExercise = true
+                        }) {
+                            HStack {
+                                Image(systemName: "wind")
+                                Text("Try a Breathing Exercise")
+                            }
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue.gradient)
+                            .cornerRadius(15)
                         }
-                        .buttonStyle(PlainButtonStyle())
+
+                        // Interactive Tools Button
+                        Button(action: {
+                            isShowingInteractiveTools = true
+                        }) {
+                            HStack {
+                                Image(systemName: "hands.sparkles.fill")
+                                Text("Mindful Activities")
+                            }
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.purple.gradient)
+                            .cornerRadius(15)
+                        }
                     }
+                    .padding([.horizontal, .bottom])
                 }
-                .padding()
-                
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Or describe it in your own words")
-                        .font(.system(size: 16, weight: .semibold, design: .rounded))
-                        .foregroundColor(.secondary)
-
-                    HStack {
-                        TextField("e.g., 'I feel a bit stressed today'", text: $userMoodText)
-                            .padding(12)
-                            .background(.white)
-                            .cornerRadius(10)
-                            .onSubmit(determineMood)
-
-                        Button(action: determineMood) {
-                            Image(systemName: "arrow.right.circle.fill")
-                                .font(.title)
-                                .foregroundColor(.white)
-                        }
-                        .disabled(userMoodText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-                    }
-                }
-                .padding(.horizontal)
-
-                VStack(spacing: 15) {
-                    // Breathing Exercise Button
-                    Button(action: {
-                        isShowingBreathingExercise = true
-                    }) {
-                        HStack {
-                            Image(systemName: "wind")
-                            Text("Try a Breathing Exercise")
-                        }
-                        .font(.system(size: 16, weight: .medium, design: .rounded))
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue.gradient)
-                        .cornerRadius(15)
-                    }
-
-                    // Interactive Tools Button
-                    Button(action: {
-                        isShowingInteractiveTools = true
-                    }) {
-                        HStack {
-                            Image(systemName: "hands.sparkles.fill")
-                            Text("Mindful Activities")
-                        }
-                        .font(.system(size: 16, weight: .medium, design: .rounded))
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.purple.gradient)
-                        .cornerRadius(15)
-                    }
-                }
-                .padding([.horizontal, .bottom])
+                .padding(.vertical)
             }
-            .padding(.vertical)
+            .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
         }
-        .background(
-            LinearGradient(
-                gradient: Gradient(colors: [Color(red: 0.85, green: 0.90, blue: 0.98), Color(red: 0.98, green: 0.90, blue: 0.95)]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .edgesIgnoringSafeArea(.all)
-        )
         .navigationDestination(item: $determinedEmotion) { emotion in
             ContentSuggestionsView(emotion: emotion)
         }

@@ -5,41 +5,39 @@ struct FavoritesView: View {
     @State private var favoriteItems: [ContentItem] = []
 
     var body: some View {
-        NavigationView {
-            ScrollView {
-                if favoriteItems.isEmpty {
-                    VStack(spacing: 16) {
-                        Spacer()
-                        Image(systemName: "heart.slash.fill")
-                            .font(.system(size: 50))
-                            .foregroundColor(.secondary.opacity(0.5))
-                        Text("No Favorites Yet")
-                            .font(.system(size: 22, weight: .bold, design: .rounded))
-                        Text("Tap the heart on any content to save it here for later.")
-                            .font(.system(size: 16, weight: .medium, design: .rounded))
-                            .foregroundColor(.secondary)
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal)
-                        Spacer()
-                    }
-                    .padding()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                } else {
-                    VStack(spacing: 20) {
-                        ForEach(favoriteItems) { item in
-                            // The ContentItemCard needs an Emotion object. We can create it from the string.
-                            if var emotion = Emotion(rawValue: item.emotion) {
-                                ContentItemCard(item: item, emotion: emotion)
-                            }
+        ScrollView {
+            if favoriteItems.isEmpty {
+                VStack(spacing: 16) {
+                    Spacer()
+                    Image(systemName: "heart.slash.fill")
+                        .font(.system(size: 50))
+                        .foregroundColor(.secondary.opacity(0.5))
+                    Text("No Favorites Yet")
+                        .font(.system(size: 22, weight: .bold, design: .rounded))
+                    Text("Tap the heart on any content to save it here for later.")
+                        .font(.system(size: 16, weight: .medium, design: .rounded))
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                    Spacer()
+                }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                VStack(spacing: 20) {
+                    ForEach(favoriteItems) { item in
+                        // The ContentItemCard needs an Emotion object. We can create it from the string.
+                        if let emotion = Emotion(rawValue: item.emotion) {
+                            ContentItemCard(item: item, emotion: emotion)
                         }
                     }
-                    .padding()
                 }
+                .padding()
             }
-            .navigationTitle("Favorites")
-            .onAppear(perform: loadFavorites)
-            .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
         }
+        .navigationTitle("Favorites")
+        .onAppear(perform: loadFavorites)
+        .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
     }
 
     private func loadFavorites() {

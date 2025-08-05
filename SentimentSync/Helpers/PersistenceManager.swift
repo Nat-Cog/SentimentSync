@@ -6,6 +6,15 @@ class PersistenceManager {
     private let favoritesKey = "favoriteItems"
 
     private init() {}
+    
+    /// Returns the URL for the mood logs JSON file in the app's documents directory.
+    private var moodLogFileURL: URL? {
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            print("Could not access documents directory.")
+            return nil
+        }
+        return documentsDirectory.appendingPathComponent("mood-logs.json")
+    }
 
     // MARK: - Mood Log Management
 
@@ -16,14 +25,18 @@ class PersistenceManager {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(allLogs)
-            UserDefaults.standard.set(data, forKey: moodLogKey)
+            if let url = moodLogFileURL {
+                try data.write(to: url, options: [.atomicWrite])
+            }
         } catch {
             print("Error encoding mood logs: \(error)")
         }
     }
 
     func fetchMoodLogs() -> [MoodLog] {
-        guard let data = UserDefaults.standard.data(forKey: moodLogKey) else { return [] }
+        guard let url = moodLogFileURL,
+              let data = try? Data(contentsOf: url) else { return [] }
+              
         do {
             let decoder = JSONDecoder()
             return try decoder.decode([MoodLog].self, from: data)
@@ -40,7 +53,9 @@ class PersistenceManager {
         do {
             let encoder = JSONEncoder()
             let data = try encoder.encode(allLogs)
-            UserDefaults.standard.set(data, forKey: moodLogKey)
+            if let url = moodLogFileURL {
+                try data.write(to: url, options: [.atomicWrite])
+            }
         } catch {
             print("Error encoding mood logs after deletion: \(error)")
         }
@@ -50,32 +65,33 @@ class PersistenceManager {
 
     func isFavorite(item: ContentItem) -> Bool {
         let favorites = fetchFavoriteIDs()
-        return favorites.contains(item.url) // Using URL as a unique identifier
+        return favorites.contains(item.id.uuidString) // Using the unique ID
     }
 
     func toggleFavorite(item: ContentItem) {
         var favorites = fetchFavoriteIDs()
-        if let index = favorites.firstIndex(of: item.url) {
+        if let index = favorites.firstIndex(of: item.id.uuidString) {
             favorites.remove(at: index)
         } else {
-            favorites.append(item.url)
+            favorites.append(item.id.uuidString)
         }
         UserDefaults.standard.set(favorites, forKey: favoritesKey)
     }
 
     private func fetchFavoriteIDs() -> [String] {
-        return UserDefaults.standard.stringArray(forKey: favoritesKey) ?? []
+        // Using the unique ID as a string
+        return UserDefaults.standard.stringArray(forKey: favoritesKey) ?? [] 
     }
 
     func fetchFavoriteItems(completion: @escaping ([ContentItem]) -> Void) {
-        let favoriteURLs = fetchFavoriteIDs()
-        if favoriteURLs.isEmpty {
+        let favoriteIDs = fetchFavoriteIDs()
+        if favoriteIDs.isEmpty {
             completion([])
             return
         }
 
         ContentLoader.loadContent { allItems in
-            let favoriteItems = allItems.filter { favoriteURLs.contains($0.url) }
+            let favoriteItems = allItems.filter { favoriteIDs.contains($0.id.uuidString) }
             completion(favoriteItems)
         }
     }

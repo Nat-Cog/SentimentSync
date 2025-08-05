@@ -3,7 +3,7 @@ import SwiftUI
 struct MainTabView: View {
     var body: some View {
         TabView {
-            NavigationView {
+            NavigationStack {
                 EmotionSelectionView()
             }
             .tabItem {
@@ -11,17 +11,21 @@ struct MainTabView: View {
             }
             .tag(0)
 
-            FavoritesView()
-                .tabItem {
-                    Label("Favorites", systemImage: "heart.fill")
-                }
-                .tag(1)
+            NavigationStack {
+                FavoritesView()
+            }
+            .tabItem {
+                Label("Favorites", systemImage: "heart.fill")
+            }
+            .tag(1)
 
-            MoodHistoryView()
-                .tabItem {
-                    Label("History", systemImage: "chart.bar.xaxis")
-                }
-                .tag(2)
+            NavigationStack {
+                MoodHistoryView()
+            }
+            .tabItem {
+                Label("History", systemImage: "chart.bar.xaxis")
+            }
+            .tag(2)
         }
     }
 }
