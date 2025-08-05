@@ -1,14 +1,13 @@
 import Foundation
+import SwiftData
 
+@Model
+final class MoodLog {
+    var emotion: Emotion
+    var date: Date
 
-struct MoodLog: Identifiable, Codable {
-    let id: UUID
-    let emotion: Emotion
-    let date: Date
-
-    init(emotion: Emotion) {
-        self.id = UUID()
+    init(emotion: Emotion, date: Date = .now) {
         self.emotion = emotion
-        self.date = Date()
+        self.date = date
     }
 }

@@ -1,8 +1,13 @@
 import SwiftUI
+import SwiftData
 
 
 struct FavoritesView: View {
+    // Query for the IDs of all favorited items, sorted by date.
+    @Query(sort: \FavoriteItem.favoritedDate, order: .reverse) private var favoriteItemIDs: [FavoriteItem]
+    
     @State private var favoriteItems: [ContentItem] = []
+    @State private var allContent: [ContentItem] = []
 
     var body: some View {
         ScrollView {
@@ -36,17 +41,26 @@ struct FavoritesView: View {
             }
         }
         .navigationTitle("Favorites")
-        .onAppear(perform: loadFavorites)
+        .onAppear(perform: loadAllContent)
+        .onChange(of: favoriteItemIDs) { _, _ in
+            // React to changes in the favorites list.
+            updateFavoriteItems()
+        }
         .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
     }
 
-    private func loadFavorites() {
-        PersistenceManager.shared.fetchFavoriteItems { items in
-            // Sort items to show the most recently favorited first, if desired.
-            // This requires knowing the order, which UserDefaults doesn't guarantee.
-            // For now, we'll just show them.
-            self.favoriteItems = items
+    private func loadAllContent() {
+        // Load the static content only once.
+        guard allContent.isEmpty else { return }
+        ContentLoader.loadContent { items in
+            self.allContent = items
+            updateFavoriteItems()
         }
+    }
+    
+    private func updateFavoriteItems() {
+        let idSet = Set(favoriteItemIDs.map { $0.contentId })
+        self.favoriteItems = allContent.filter { idSet.contains($0.id.uuidString) }
     }
 }
 

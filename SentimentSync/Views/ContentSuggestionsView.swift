@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentSuggestionsView: View {
     let emotion: Emotion
+    @Environment(\.modelContext) private var modelContext
     @StateObject private var viewModel = ContentViewModel()
     @State private var showEmotionSelection = false
     @State private var isMoodLogged = false
@@ -76,7 +77,10 @@ struct ContentSuggestionsView: View {
                         // Log mood button
                         Button(action: {
                             if !isMoodLogged {
-                                PersistenceManager.shared.save(moodLog: MoodLog(emotion: emotion))
+                                // Provide haptic feedback for a more tactile user experience.
+                                let generator = UIImpactFeedbackGenerator(style: .medium)
+                                generator.impactOccurred()
+                                modelContext.insert(MoodLog(emotion: emotion))
                                 isMoodLogged = true
                             }
                         }) {

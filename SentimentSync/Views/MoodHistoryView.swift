@@ -1,8 +1,11 @@
 import SwiftUI
+import SwiftData
 
 struct MoodHistoryView: View {
-    @State private var moodLogs: [MoodLog] = []
-
+    @Environment(\.modelContext) private var modelContext
+    // @Query automatically fetches and sorts the data, and updates the view on changes.
+    @Query(sort: \MoodLog.date, order: .reverse) private var moodLogs: [MoodLog]
+    
     var body: some View {
         List {
             if moodLogs.isEmpty {
@@ -30,23 +33,16 @@ struct MoodHistoryView: View {
             }
         }
         .navigationTitle("Mood History")
-        .onAppear(perform: loadHistory)
         .toolbar {
             if !moodLogs.isEmpty {
                 EditButton()
             }
         }
     }
-
-    private func loadHistory() {
-        moodLogs = PersistenceManager.shared.fetchMoodLogs()
-    }
-
+    
     private func deleteLog(at offsets: IndexSet) {
-        // First, remove from the persistent storage
-        PersistenceManager.shared.deleteMoodLogs(at: offsets)
-
-        // Then, remove from the local state to update the UI
-        moodLogs.remove(atOffsets: offsets)
+        for index in offsets {
+            modelContext.delete(moodLogs[index])
+        }
     }
 }
