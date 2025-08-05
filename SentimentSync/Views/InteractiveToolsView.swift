@@ -5,46 +5,55 @@ struct InteractiveToolsView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                NavigationLink(destination: ArtAndCraftView()) {
-                    ToolRow(
-                        iconName: "paintpalette.fill",
-                        iconColor: .orange,
-                        title: "Art & Craft",
-                        description: "Express yourself through drawing and colors."
-                    )
+            ZStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [Color(red: 0.85, green: 0.90, blue: 0.98), Color(red: 0.98, green: 0.90, blue: 0.95)]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .edgesIgnoringSafeArea(.all)
+                
+                List {
+                    NavigationLink(destination: ArtAndCraftView()) {
+                        ToolRow(
+                            iconName: "paintpalette.fill",
+                            iconColor: .orange,
+                            title: "Art & Craft",
+                            description: "Express yourself through drawing and colors."
+                        )
+                    }
+                    NavigationLink(destination: JournalingView()) {
+                        ToolRow(
+                            iconName: "book.closed.fill",
+                            iconColor: .brown,
+                            title: "Journaling",
+                            description: "Write down your thoughts and feelings."
+                        )
+                    }
+                    NavigationLink(destination: MindfulColoringView()) {
+                        ToolRow(
+                            iconName: "eyedropper.halffull",
+                            iconColor: .cyan,
+                            title: "Mindful Coloring",
+                            description: "Relax and focus with digital coloring pages."
+                        )
+                    }
+                    NavigationLink(destination: MoodCanvasView()) {
+                        ToolRow(
+                            iconName: "sparkles",
+                            iconColor: .yellow,
+                            title: "Mood Canvas",
+                            description: "A dynamic canvas that reflects your chosen mood."
+                        )
+                    }
                 }
-                NavigationLink(destination: JournalingView()) {
-                    ToolRow(
-                        iconName: "book.closed.fill",
-                        iconColor: .brown,
-                        title: "Journaling",
-                        description: "Write down your thoughts and feelings."
-                    )
-                }
-                NavigationLink(destination: MindfulColoringView()) {
-                    ToolRow(
-                        iconName: "eyedropper.halffull",
-                        iconColor: .cyan,
-                        title: "Mindful Coloring",
-                        description: "Relax and focus with digital coloring pages."
-                    )
-                }
-                NavigationLink(destination: MoodCanvasView()) {
-                    ToolRow(
-                        iconName: "sparkles",
-                        iconColor: .yellow,
-                        title: "Mood Canvas",
-                        description: "A dynamic canvas that reflects your chosen mood."
-                    )
-                }
-            }
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Mindful Activities")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Done") {
-                        dismiss()
+                .listStyle(InsetGroupedListStyle())
+                .navigationTitle("Mindful Activities")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("Done") {
+                            dismiss()
+                        }
                     }
                 }
             }

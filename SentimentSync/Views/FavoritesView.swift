@@ -25,10 +25,10 @@ struct FavoritesView: View {
                     .padding()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
-                    LazyVStack(spacing: 20) {
+                    VStack(spacing: 20) {
                         ForEach(favoriteItems) { item in
                             // The ContentItemCard needs an Emotion object. We can create it from the string.
-                            if let emotion = Emotion(rawValue: item.emotion) {
+                            if var emotion = Emotion(rawValue: item.emotion) {
                                 ContentItemCard(item: item, emotion: emotion)
                             }
                         }

@@ -61,10 +61,10 @@ struct ContentSuggestionsView: View {
                             Text("Visualize in Mood Canvas")
                         }
                         .font(.system(size: 16, weight: .medium, design: .rounded))
-                        .foregroundColor(emotion.color)
+                        .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(emotion.color.opacity(0.15))
+                        .background(emotion.color)
                         .cornerRadius(15)
                         .padding(.horizontal)
                     }
@@ -81,33 +81,16 @@ struct ContentSuggestionsView: View {
                             Text(isMoodLogged ? "Mood Logged" : "Log This Mood")
                         }
                         .font(.system(size: 16, weight: .medium, design: .rounded))
-                        .foregroundColor(isMoodLogged ? .green : emotion.color)
+                        .foregroundColor(.white)
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(isMoodLogged ? Color.green.opacity(0.15) : emotion.color.opacity(0.15))
+                        .background(isMoodLogged ? Color.green : emotion.color)
                         .cornerRadius(15)
                         .padding(.horizontal)
                     }.disabled(isMoodLogged)
 
                 }
                 
-                // Not feeling these button
-                Button(action: {
-                    showEmotionSelection = true
-                }) {
-                    Text("Not feeling these?")
-                        .font(.system(size: 16, weight: .medium, design: .rounded))
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(
-                            RoundedRectangle(cornerRadius: 15)
-                                .fill(emotion.color)
-                        )
-                        .padding(.horizontal)
-                }
-                .padding(.top, 20)
-                .padding(.bottom, 10)
             }
             .padding(.vertical)
         }
@@ -116,7 +99,14 @@ struct ContentSuggestionsView: View {
         }
         .navigationTitle("Content Suggestions")
         .navigationBarTitleDisplayMode(.inline)
-        .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: [Color(red: 0.85, green: 0.90, blue: 0.98), Color(red: 0.98, green: 0.90, blue: 0.95)]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .edgesIgnoringSafeArea(.all)
+        )
         .navigationDestination(isPresented: $showEmotionSelection) {
             EmotionSelectionView()
                 .navigationBarBackButtonHidden(true)

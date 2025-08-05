@@ -21,7 +21,14 @@ struct ContentDetailView: View {
         }
         .navigationTitle(item.type.rawValue.capitalized)
         .navigationBarTitleDisplayMode(.inline)
-        .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: [Color(red: 0.85, green: 0.90, blue: 0.98), Color(red: 0.98, green: 0.90, blue: 0.95)]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .edgesIgnoringSafeArea(.all)
+        )
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
@@ -29,7 +36,7 @@ struct ContentDetailView: View {
                     isFavorite.toggle()
                 }) {
                     Image(systemName: isFavorite ? "heart.fill" : "heart")
-                        .foregroundColor(isFavorite ? .red : .gray)
+                        .foregroundColor(isFavorite ? emotion.color : emotion.color.opacity(0.5))
                 }
             }
         }
