@@ -1,123 +1,137 @@
 import SwiftUI
 import SafariServices
 
+
 struct ContentDetailView: View {
     let item: ContentItem
     let emotion: Emotion
     @State private var showSafari = false
     @State private var isFavorite = false
+    private var contentURL: URL? { URL(string: item.url) }
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                // Header with icon and type
-                HStack {
-                    Image(systemName: item.type.icon)
-                        .font(.system(size: 24))
-                        .foregroundColor(emotion.color)
-                    
-                    Text(item.type.rawValue.capitalized)
-                        .font(.system(size: 18, weight: .semibold, design: .rounded))
-                        .foregroundColor(emotion.color)
-                }
-                
-                // Title
-                Text(item.title)
-                    .font(.system(size: 28, weight: .bold, design: .rounded))
-                    .foregroundColor(.primary)
-                
-                // Description
-                Text(item.description)
-                    .font(.system(size: 18, weight: .regular, design: .rounded))
-                    .foregroundColor(.secondary)
-                    .padding(.bottom, 20)
-                
-                // Content preview placeholder
-                ZStack {
-                    Rectangle()
-                        .fill(emotion.color.opacity(0.1))
-                        .cornerRadius(15)
-                        .frame(height: 200)
-                    
-                    VStack {
-                        Image(systemName: contentImageName())
-                            .font(.system(size: 50))
-                            .foregroundColor(emotion.color)
-                        
-                        Text("Tap to \(item.type.label)")
-                            .font(.system(size: 18, weight: .medium, design: .rounded))
-                            .foregroundColor(emotion.color)
-                            .padding(.top, 10)
-                    }
-                }
-                .onTapGesture {
-                    showSafari = true
-                }
-                
-                // Open button
-                Button(action: {
-                    showSafari = true
-                }) {
-                    HStack {
-                        Text("\(item.type.label) Now")
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
-                        
-                        Image(systemName: "arrow.right")
-                            .font(.system(size: 18, weight: .bold))
-                    }
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(
-                        RoundedRectangle(cornerRadius: 15)
-                            .fill(emotion.color)
-                    )
-                }
-                .padding(.top, 20)
+            // Use a switch to provide a custom view for each content type
+            switch item.type {
+            case .quote:
+                QuoteDetailView(item: item, emotion: emotion)
+            default:
+                ExternalContentDetailView(item: item, emotion: emotion, showSafari: $showSafari)
             }
-            .padding()
         }
         .navigationTitle(item.type.rawValue.capitalized)
         .navigationBarTitleDisplayMode(.inline)
-        .background(LinearGradient(
-            gradient: Gradient(colors: [
-                Color(red: 0.85, green: 0.92, blue: 0.98),  // Light blue
-                Color(red: 0.96, green: 0.87, blue: 0.89)   // Light pink
-            ]),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        )
-        .edgesIgnoringSafeArea(.all))
-    .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
-            Button(action: {
-                PersistenceManager.shared.toggleFavorite(item: item)
-                isFavorite.toggle()
-            }) {
-                Image(systemName: isFavorite ? "heart.fill" : "heart")
-                    .foregroundColor(isFavorite ? .red : .gray)
+        .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    PersistenceManager.shared.toggleFavorite(item: item)
+                    isFavorite.toggle()
+                }) {
+                    Image(systemName: isFavorite ? "heart.fill" : "heart")
+                        .foregroundColor(isFavorite ? .red : .gray)
+                }
             }
         }
-    }
         .sheet(isPresented: $showSafari) {
-            SafariView(url: URL(string: item.url) ?? URL(string: "https://www.apple.com")!)
+            if let url = contentURL {
+                SafariView(url: url)
+            }
         }
         .onAppear {
             isFavorite = PersistenceManager.shared.isFavorite(item: item)
         }
     }
-    
-    private func contentImageName() -> String {
-        switch item.type {
-        case .video:
-            return "play.rectangle.fill"
-        case .quote:
-            return "quote.bubble.fill"
-        case .song:
-            return "music.note.list"
-        case .article:
-            return "doc.richtext.fill"
+}
+
+/// A view specialized for displaying quotes beautifully.
+struct QuoteDetailView: View {
+    let item: ContentItem
+    let emotion: Emotion
+
+    var body: some View {
+        VStack(alignment: .center, spacing: 30) {
+            Spacer()
+            
+            Image(systemName: "quote.opening")
+                .font(.system(size: 40))
+                .foregroundColor(emotion.color.opacity(0.5))
+
+            Text(item.title)
+                .font(.system(size: 26, weight: .semibold, design: .serif))
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+
+            Text("— \(item.description)")
+                .font(.system(size: 18, weight: .medium, design: .rounded))
+                .foregroundColor(.secondary)
+            
+            Image(systemName: "quote.closing")
+                .font(.system(size: 40))
+                .foregroundColor(emotion.color.opacity(0.5))
+            
+            Spacer()
         }
+        .padding()
+    }
+}
+
+/// A view for content that links to an external URL (videos, articles, songs).
+struct ExternalContentDetailView: View {
+    let item: ContentItem
+    let emotion: Emotion
+    @Binding var showSafari: Bool
+    private var contentURL: URL? { URL(string: item.url) }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            // Header with icon and type
+            HStack {
+                Image(systemName: item.type.icon)
+                    .font(.system(size: 24))
+                    .foregroundColor(emotion.color)
+                
+                Text(item.type.rawValue.capitalized)
+                    .font(.system(size: 18, weight: .semibold, design: .rounded))
+                    .foregroundColor(emotion.color)
+            }
+            
+            // Title
+            Text(item.title)
+                .font(.system(size: 28, weight: .bold, design: .rounded))
+                .foregroundColor(.primary)
+            
+            // Description
+            Text(item.description)
+                .font(.system(size: 18, weight: .regular, design: .rounded))
+                .foregroundColor(.secondary)
+                .padding(.bottom, 10)
+            
+            // Interactive preview card
+            Button(action: {
+                if contentURL != nil {
+                    showSafari = true
+                }
+            }) {
+                ZStack {
+                    LinearGradient(gradient: Gradient(colors: [emotion.color.opacity(0.6), emotion.color.opacity(0.9)]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    
+                    VStack(spacing: 15) {
+                        Image(systemName: item.type.icon)
+                            .font(.system(size: 60))
+                        Text("Tap to \(item.type.label)")
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                    }
+                    .foregroundColor(.white)
+                }
+                .frame(height: 220)
+                .cornerRadius(20)
+                .shadow(color: emotion.color.opacity(0.4), radius: 8, y: 4)
+            }
+            .buttonStyle(PlainButtonStyle())
+            .disabled(contentURL == nil)
+        }
+        .padding()
     }
 }
 

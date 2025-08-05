@@ -1,10 +1,12 @@
 import SwiftUI
 
 struct EmotionSelectionView: View {
-    @State private var isShowingHistory = false
-    @State private var isShowingFavorites = false
     @State private var isShowingBreathingExercise = false
-
+    @State private var isShowingInteractiveTools = false
+    @State private var userMoodText: String = ""
+    @State private var determinedEmotion: Emotion?
+    @State private var showCouldNotDetermineMoodAlert = false
+    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -18,65 +20,102 @@ struct EmotionSelectionView: View {
                     .font(.system(size: 28, weight: .bold, design: .rounded))
                     .padding(.horizontal)
                 
+                
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(Emotion.allCases) { emotion in
                         NavigationLink(destination: ContentSuggestionsView(emotion: emotion)) {
                             EmotionCell(emotion: emotion)
                         }
+                        .buttonStyle(PlainButtonStyle())
                     }
                 }
                 .padding()
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Or describe it in your own words")
+                        .font(.system(size: 16, weight: .semibold, design: .rounded))
+                        .foregroundColor(.secondary)
 
-                // Breathing Exercise Button
-                Button(action: {
-                    isShowingBreathingExercise = true
-                }) {
                     HStack {
-                        Image(systemName: "wind")
-                        Text("Try a Breathing Exercise")
-                    }
-                    .font(.system(size: 16, weight: .medium, design: .rounded))
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue.gradient)
-                    .cornerRadius(15)
-                    .padding([.horizontal, .bottom])
-                }
+                        TextField("e.g., 'I feel a bit stressed today'", text: $userMoodText)
+                            .padding(12)
+                            .background(Color(.systemGroupedBackground))
+                            .cornerRadius(10)
+                            .onSubmit(determineMood)
 
+                        Button(action: determineMood) {
+                            Image(systemName: "arrow.right.circle.fill")
+                                .font(.title)
+                                .foregroundColor(.accentColor)
+                        }
+                        .disabled(userMoodText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                    }
+                }
+                .padding(.horizontal)
+
+                VStack(spacing: 15) {
+                    // Breathing Exercise Button
+                    Button(action: {
+                        isShowingBreathingExercise = true
+                    }) {
+                        HStack {
+                            Image(systemName: "wind")
+                            Text("Try a Breathing Exercise")
+                        }
+                        .font(.system(size: 16, weight: .medium, design: .rounded))
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue.gradient)
+                        .cornerRadius(15)
+                    }
+
+                    // Interactive Tools Button
+                    Button(action: {
+                        isShowingInteractiveTools = true
+                    }) {
+                        HStack {
+                            Image(systemName: "hands.sparkles.fill")
+                            Text("Mindful Activities")
+                        }
+                        .font(.system(size: 16, weight: .medium, design: .rounded))
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.purple.gradient)
+                        .cornerRadius(15)
+                    }
+                }
+                .padding([.horizontal, .bottom])
             }
             .padding(.vertical)
         }
-        .navigationTitle("Select Mood")
-        .background(LinearGradient(
-            gradient: Gradient(colors: [
-                Color(red: 0.85, green: 0.92, blue: 0.98),  // Light blue
-                Color(red: 0.96, green: 0.87, blue: 0.89)   // Light pink
-            ]),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        )
-        .edgesIgnoringSafeArea(.all))
-    .toolbar {
-        ToolbarItemGroup(placement: .navigationBarTrailing) {
-            Button(action: { isShowingFavorites = true }) {
-                Image(systemName: "heart.fill")
-            }
-
-            Button(action: { isShowingHistory = true }) {
-                Image(systemName: "list.bullet.rectangle.portrait")
-            }
+        .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
+        .navigationDestination(item: $determinedEmotion) { emotion in
+            ContentSuggestionsView(emotion: emotion)
+        }
+        .alert("Couldn't Determine Mood", isPresented: $showCouldNotDetermineMoodAlert) {
+            Button("OK") { }
+        } message: {
+            Text("We couldn't quite understand that. Please try other words, or select a mood from the options below.")
+        }
+        .sheet(isPresented: $isShowingBreathingExercise) {
+            BreathingExerciseView()
+        }
+        .sheet(isPresented: $isShowingInteractiveTools) {
+            InteractiveToolsView()
         }
     }
-    .sheet(isPresented: $isShowingHistory) {
-        MoodHistoryView()
-    }
-    .sheet(isPresented: $isShowingFavorites) {
-        FavoritesView()
-    }
-    .sheet(isPresented: $isShowingBreathingExercise) {
-        BreathingExerciseView()
-    }
+
+    private func determineMood() {
+        guard !userMoodText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+
+        if let emotion = Emotion.from(text: userMoodText) {
+            determinedEmotion = emotion
+            userMoodText = "" // Clear text field on success
+        } else {
+            showCouldNotDetermineMoodAlert = true
+        }
     }
 }
 
@@ -99,6 +138,7 @@ struct EmotionCell: View {
                 .font(.system(size: 14, weight: .medium, design: .rounded))
                 .foregroundColor(.primary)
                 .multilineTextAlignment(.center)
+                .frame(height: 35, alignment: .top) // Align cells
         }
         .padding(10)
         .background(Color.white)

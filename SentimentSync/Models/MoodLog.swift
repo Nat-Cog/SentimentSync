@@ -1,5 +1,6 @@
 import Foundation
 
+
 struct MoodLog: Identifiable, Codable {
     let id: UUID
     let emotion: Emotion

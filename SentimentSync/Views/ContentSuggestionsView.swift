@@ -22,6 +22,10 @@ struct ContentSuggestionsView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
                 
+                //If we want to guide user to a different emotion, in case of negative emotions.
+//                let targetEmotion = emotion.suggestedContentEmotion
+                let targetEmotion = emotion
+
                 if viewModel.isLoading {
                     ProgressView()
                         .padding()
@@ -31,23 +35,38 @@ struct ContentSuggestionsView: View {
                         .padding()
                 } else {
                     // Video Suggestion
-                    if let video = viewModel.getContentByType(for: emotion, type: .video) {
+                    if let video = viewModel.getContentByType(for: targetEmotion, type: .video) {
                         ContentItemCard(item: video, emotion: emotion)
                     }
                     
                     // Quote Suggestion
-                    if let quote = viewModel.getContentByType(for: emotion, type: .quote) {
+                    if let quote = viewModel.getContentByType(for: targetEmotion, type: .quote) {
                         ContentItemCard(item: quote, emotion: emotion)
                     }
                     
                     // Song Suggestion
-                    if let song = viewModel.getContentByType(for: emotion, type: .song) {
+                    if let song = viewModel.getContentByType(for: targetEmotion, type: .song) {
                         ContentItemCard(item: song, emotion: emotion)
                     }
                     
                     // Article Suggestion
-                    if let article = viewModel.getContentByType(for: emotion, type: .article) {
+                    if let article = viewModel.getContentByType(for: targetEmotion, type: .article) {
                         ContentItemCard(item: article, emotion: emotion)
+                    }
+
+                    // Mood Canvas Button
+                    NavigationLink(destination: MoodCanvasView(selectedEmotion: emotion)) {
+                        HStack {
+                            Image(systemName: "sparkles")
+                            Text("Visualize in Mood Canvas")
+                        }
+                        .font(.system(size: 16, weight: .medium, design: .rounded))
+                        .foregroundColor(emotion.color)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(emotion.color.opacity(0.15))
+                        .cornerRadius(15)
+                        .padding(.horizontal)
                     }
 
                     // Log mood button
@@ -97,15 +116,7 @@ struct ContentSuggestionsView: View {
         }
         .navigationTitle("Content Suggestions")
         .navigationBarTitleDisplayMode(.inline)
-        .background(LinearGradient(
-            gradient: Gradient(colors: [
-                Color(red: 0.85, green: 0.92, blue: 0.98),  // Light blue
-                Color(red: 0.96, green: 0.87, blue: 0.89)   // Light pink
-            ]),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        )
-        .edgesIgnoringSafeArea(.all))
+        .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
         .navigationDestination(isPresented: $showEmotionSelection) {
             EmotionSelectionView()
                 .navigationBarBackButtonHidden(true)
