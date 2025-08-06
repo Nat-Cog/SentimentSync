@@ -1,9 +1,15 @@
 import SwiftUI
+import SwiftData
+
 @main
-struct SentimentVibeApp: App {
+struct SentimentSyncApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                WelcomeView()
+            }
         }
+        // The modelContainer sets up the database for the specified models.
+        .modelContainer(for: [MoodLog.self, FavoriteItem.self])
     }
 }

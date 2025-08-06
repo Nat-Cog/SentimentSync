@@ -1,0 +1,126 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Product Requirements Document (PRD)
+
+## Project Title: Mood-Based Content Suggestion iOS App
+
+---
+
+## 1. Overview
+
+The Mood-Based Content Suggestion app provides personalized content recommendations based on the user's current emotion. Built with SwiftUI, the app emphasizes a smooth and intuitive user experience with dynamic content presentation for emotions like happiness, sadness, anger, etc.
+
+---
+
+## 2. Objectives
+
+- Allow users to express their current mood.
+- Deliver relevant content suggestions per mood.
+- Enable easy navigation between emotion selection and suggestions.
+- Maintain an engaging and visually appealing interface.
+
+---
+
+## 3. Features
+
+### 3.1 Welcome Screen
+- On launch, display a screen with the text “Welcome Back.”
+- Tapping the screen transitions to mood selection.
+
+### 3.2 Emotion Selection
+- Display buttons/icons for emotions:
+  - happy, sad, angry, scared, romantic, relaxed, lost, stressed, sleepy
+- Selecting an emotion transitions to content suggestions.
+
+### 3.3 Content Suggestions
+- Each emotion leads to a dynamic “Content Suggestions” page.
+- Suggestions shown in a widget-style layout:
+  - YouTube video
+  - Motivational quote
+  - Song recommendation
+  - Article recommendation
+- Each content item is tappable and leads to a detailed view.
+- The content suggestions populate based on a new selection from the data.
+
+---
+
+## 4. User Stories
+
+### As a user:
+- I want to select how I feel.
+- I want to receive content tailored to that feeling.
+- I want to interact with individual content pieces.
+- I want to easily explore different emotions and suggestions.
+- I want to receive a new suggestion everytime I explore an emotion.
+
+---
+
+## 5. Technical Requirements
+
+- **Platform:** iOS 16+
+- **Language:** Swift 5+
+- **UI Framework:** SwiftUI
+- **Data Handling:** JSON or local data source for demo; future integration with APIs
+- **Navigation:** SwiftUI `NavigationStack`
+
+---
+
+## 6. Architecture & File Structure
+
+```
+MoodContentApp/
+│
+├── Models/
+│   ├── Emotion.swift                  # Enum for emotions
+│   └── ContentItem.swift              # Struct for suggestion items (video, quote, etc.)
+│
+├── Views/
+│   ├── WelcomeView.swift              # Welcome back screen
+│   ├── EmotionSelectionView.swift     # Displays emotion options
+│   ├── ContentSuggestionsView.swift   # Displays all content widgets
+│   ├── ContentDetailView.swift        # Shows detailed view of tapped content
+│
+├── ViewModels/
+│   ├── ContentViewModel.swift         # Fetches & randomizes content
+│
+├── Resources/
+│   ├── Assets.xcassets                # Images and icons
+│   └── ContentData.json               # Sample content for each emotion
+│
+├── Extensions/
+│   └── View+RoundedCorners.swift      # UI helpers
+│
+├── Helpers/
+│   └── ContentLoader.swift            # Load local or remote content data
+│
+├── Info.plist
+└── MoodContentApp.swift               # App entry point
+```
+
+---
+
+## 7. UX/UI Design Notes
+
+- Emotions shown as colorful buttons or icons.
+- Content suggestions in card-style widgets, vertically stacked.
+- Smooth transitions between views with fade/slide animations.
+- Light theme with clean typography.
+
+
+## 8. Dependencies
+
+- SwiftUI
+- AVKit / WebKit for video/audio playback
+- Optional: Combine or async/await for data loading
+
+---
+
+## 9. Acceptance Criteria
+
+- User sees welcome screen on launch.
+- User can select emotion and receive varied, random content.
+- Tapping any content opens its full view.
+- No crashes or UI bugs during flow.

@@ -15,7 +15,7 @@ struct WelcomeView: View {
             VStack(spacing: 20) {
                 Text("Welcome Back")
                     .font(.system(size: 40, weight: .bold, design: .rounded))
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
                 
             }
         }

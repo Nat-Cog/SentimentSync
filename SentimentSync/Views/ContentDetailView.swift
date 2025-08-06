@@ -1,11 +1,14 @@
 import SwiftUI
 import SafariServices
+import SwiftData
 
 
 struct ContentDetailView: View {
     let item: ContentItem
     let emotion: Emotion
+    @Environment(\.modelContext) private var modelContext
     @State private var showSafari = false
+    @State private var favorite: FavoriteItem?
     @State private var isFavorite = false
     private var contentURL: URL? { URL(string: item.url) }
 
@@ -27,22 +30,14 @@ struct ContentDetailView: View {
         }
         .navigationTitle(item.type.rawValue.capitalized)
         .navigationBarTitleDisplayMode(.inline)
-        .background(
-            LinearGradient(
-                gradient: Gradient(colors: [Color(red: 0.85, green: 0.90, blue: 0.98), Color(red: 0.98, green: 0.90, blue: 0.95)]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .edgesIgnoringSafeArea(.all)
-        )
+        .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    PersistenceManager.shared.toggleFavorite(item: item)
-                    isFavorite.toggle()
+                    toggleFavorite()
                 }) {
                     Image(systemName: isFavorite ? "heart.fill" : "heart")
-                        .foregroundColor(isFavorite ? emotion.color : emotion.color.opacity(0.5))
+                        .foregroundColor(isFavorite ? emotion.color : .gray)
                 }
             }
         }
@@ -52,7 +47,38 @@ struct ContentDetailView: View {
             }
         }
         .onAppear {
-            isFavorite = PersistenceManager.shared.isFavorite(item: item)
+            fetchFavoriteStatus()
+        }
+    }
+    
+    private func fetchFavoriteStatus() {
+        let contentId = item.id.uuidString
+        let predicate = #Predicate<FavoriteItem> { $0.contentId == contentId }
+        let descriptor = FetchDescriptor(predicate: predicate)
+        
+        if let fetchedFavorites = try? modelContext.fetch(descriptor) {
+            favorite = fetchedFavorites.first
+            isFavorite = fetchedFavorites.first != nil
+        }
+    }
+    
+    private func toggleFavorite() {
+        // Provide haptic feedback for a more tactile user experience.
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+        
+        // The UI is bound to the @State variables `isFavorite` and `favorite`.
+        // We must update them directly after modifying the modelContext to ensure
+        // the view re-renders with the correct state.
+        if let existingFavorite = favorite {
+            modelContext.delete(existingFavorite)
+            self.favorite = nil
+            self.isFavorite = false
+        } else {
+            let newFavorite = FavoriteItem(contentId: item.id.uuidString)
+            modelContext.insert(newFavorite)
+            self.favorite = newFavorite
+            self.isFavorite = true
         }
     }
 }
