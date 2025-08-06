@@ -724,7 +724,7 @@
         "title": "Happy",
         "artist": "Pharrell Williams",
         "description": "A Spotify song suggestion for your happy mood.",
-        "url": "https://open.spotify.com/track/60nZcImufyMA1MKQY3dcCH",
+        "url": "https://open.spotify.com/search/Happy%20Pharrell%20Williams",
         "type": "song",
         "emotion": "happy"
     },
@@ -733,7 +733,7 @@
         "title": "Walking On Sunshine",
         "artist": "Katrina & The Waves",
         "description": "A Spotify song suggestion for your happy mood.",
-        "url": "https://open.spotify.com/track/60nZcImufyMA1MKQZ2Bm3n",
+        "url": "https://open.spotify.com/search/Walking%20On%20Sunshine%20Katrina%20&%20The%20Waves",
         "type": "song",
         "emotion": "happy"
     },
@@ -742,7 +742,7 @@
         "title": "Good To Be Alive (Hallelujah)",
         "artist": "Andy Grammer",
         "description": "A Spotify song suggestion for your happy mood.",
-        "url": "https://open.spotify.com/track/6b8Be6ljOzmkOmFslEb23P",
+        "url": "https://open.spotify.com/search/Good%20To%20Be%20Alive%20(Hallelujah)%20Andy%20Grammer",
         "type": "song",
         "emotion": "happy"
     },
@@ -751,7 +751,7 @@
         "title": "Best Day of My Life",
         "artist": "American Authors",
         "description": "A Spotify song suggestion for your happy mood.",
-        "url": "https://open.spotify.com/track/4kbj5MwxO1bq9wjT5g9HaA",
+        "url": "https://open.spotify.com/search/Best%20Day%20of%20My%20Life%20American%20Authors",
         "type": "song",
         "emotion": "happy"
     },
@@ -760,7 +760,7 @@
         "title": "Can't Stop The Feeling!",
         "artist": "Justin Timberlake",
         "description": "A Spotify song suggestion for your happy mood.",
-        "url": "https://open.spotify.com/track/6Z8R6UsFuGXGtiIxiD8ISb",
+        "url": "https://open.spotify.com/search/Can't%20Stop%20The%20Feeling!%20Justin%20Timberlake",
         "type": "song",
         "emotion": "happy"
     },
@@ -769,7 +769,7 @@
         "title": "Sugar",
         "artist": "Maroon 5",
         "description": "A Spotify song suggestion for your happy mood.",
-        "url": "https://open.spotify.com/track/6DCZcSspjsKoFjzjrWoCdn",
+        "url": "https://open.spotify.com/search/Sugar%20Maroon%205",
         "type": "song",
         "emotion": "happy"
     },
@@ -778,7 +778,7 @@
         "title": "Uptown Funk",
         "artist": "Mark Ronson ft. Bruno Mars",
         "description": "A Spotify song suggestion for your happy mood.",
-        "url": "https://open.spotify.com/track/6DCZcSspjsKoFjzjrWoCdn?dup=6",
+        "url": "https://open.spotify.com/search/Uptown%20Funk%20Mark%20Ronson%20ft.%20Bruno%20Mars",
         "type": "song",
         "emotion": "happy"
     },
@@ -787,7 +787,7 @@
         "title": "On Top of the World",
         "artist": "Imagine Dragons",
         "description": "A Spotify song suggestion for your happy mood.",
-        "url": "https://open.spotify.com/track/6DCZcSspjsKoFjzjrWoCdn?dup=7",
+        "url": "https://open.spotify.com/search/On%20Top%20of%20the%20World%20Imagine%20Dragons",
         "type": "song",
         "emotion": "happy"
     },
@@ -796,7 +796,7 @@
         "title": "Good Vibrations",
         "artist": "The Beach Boys",
         "description": "A Spotify song suggestion for your happy mood.",
-        "url": "https://open.spotify.com/track/6DCZcSspjsKoFjzjrWoCdn?dup=8",
+        "url": "https://open.spotify.com/search/Good%20Vibrations%20The%20Beach%20Boys",
         "type": "song",
         "emotion": "happy"
     },
@@ -805,7 +805,7 @@
         "title": "Lovely Day",
         "artist": "Bill Withers",
         "description": "A Spotify song suggestion for your happy mood.",
-        "url": "https://open.spotify.com/track/6DCZcSspjsKoFjzjrWoCdn?dup=9",
+        "url": "https://open.spotify.com/search/Lovely%20Day%20Bill%20Withers",
         "type": "song",
         "emotion": "happy"
     },
@@ -814,7 +814,7 @@
         "title": "Someone Like You",
         "artist": "Adele",
         "description": "A Spotify song suggestion for your sad mood.",
-        "url": "https://open.spotify.com/track/4kflIGfjdZJW4ot2ioixTB",
+        "url": "https://open.spotify.com/search/Someone%20Like%20You%20Adele",
         "type": "song",
         "emotion": "sad"
     },
@@ -823,7 +823,7 @@
         "title": "Fix You",
         "artist": "Coldplay",
         "description": "A Spotify song suggestion for your sad mood.",
-        "url": "https://open.spotify.com/track/7qEHsqek33rTcFNT9PFqLf",
+        "url": "https://open.spotify.com/search/Fix%20You%20Coldplay",
         "type": "song",
         "emotion": "sad"
     },
@@ -832,7 +832,7 @@
         "title": "Let Her Go",
         "artist": "Passenger",
         "description": "A Spotify song suggestion for your sad mood.",
-        "url": "https://open.spotify.com/track/4NHQUGzhtTLFvgF5SZesLK",
+        "url": "https://open.spotify.com/search/Let%20Her%20Go%20Passenger",
         "type": "song",
         "emotion": "sad"
     },
@@ -841,7 +841,7 @@
         "title": "Skinny Love",
         "artist": "Bon Iver",
         "description": "A Spotify song suggestion for your sad mood.",
-        "url": "https://open.spotify.com/track/0pqnGHJpmpxLKifKRmU6WP",
+        "url": "https://open.spotify.com/search/Skinny%20Love%20Bon%20Iver",
         "type": "song",
         "emotion": "sad"
     },
@@ -850,7 +850,7 @@
         "title": "Hurt",
         "artist": "Johnny Cash",
         "description": "A Spotify song suggestion for your sad mood.",
-        "url": "https://open.spotify.com/track/7wvwXi2TiP7qMpSrbLgCQc",
+        "url": "https://open.spotify.com/search/Hurt%20Johnny%20Cash",
         "type": "song",
         "emotion": "sad"
     },
@@ -859,7 +859,7 @@
         "title": "The Night We Met",
         "artist": "Lord Huron",
         "description": "A Spotify song suggestion for your sad mood.",
-        "url": "https://open.spotify.com/track/4SSnFejRGlZikf02HLewEF",
+        "url": "https://open.spotify.com/search/The%20Night%20We%20Met%20Lord%20Huron",
         "type": "song",
         "emotion": "sad"
     },
@@ -868,7 +868,7 @@
         "title": "When I Was Your Man",
         "artist": "Bruno Mars",
         "description": "A Spotify song suggestion for your sad mood.",
-        "url": "https://open.spotify.com/track/4SSnFejRGlZikf02HLewEF?dup=6",
+        "url": "https://open.spotify.com/search/When%20I%20Was%20Your%20Man%20Bruno%20Mars",
         "type": "song",
         "emotion": "sad"
     },
@@ -877,7 +877,7 @@
         "title": "Tears Dry on Their Own",
         "artist": "Amy Winehouse",
         "description": "A Spotify song suggestion for your sad mood.",
-        "url": "https://open.spotify.com/track/4SSnFejRGlZikf02HLewEF?dup=7",
+        "url": "https://open.spotify.com/search/Tears%20Dry%20on%20Their%20Own%20Amy%20Winehouse",
         "type": "song",
         "emotion": "sad"
     },
@@ -886,7 +886,7 @@
         "title": "Goodbye My Lover",
         "artist": "James Blunt",
         "description": "A Spotify song suggestion for your sad mood.",
-        "url": "https://open.spotify.com/track/4SSnFejRGlZikf02HLewEF?dup=8",
+        "url": "https://open.spotify.com/search/Goodbye%20My%20Lover%20James%20Blunt",
         "type": "song",
         "emotion": "sad"
     },
@@ -895,7 +895,7 @@
         "title": "All I Want",
         "artist": "Kodaline",
         "description": "A Spotify song suggestion for your sad mood.",
-        "url": "https://open.spotify.com/track/4SSnFejRGlZikf02HLewEF?dup=9",
+        "url": "https://open.spotify.com/search/All%20I%20Want%20Kodaline",
         "type": "song",
         "emotion": "sad"
     },
@@ -904,7 +904,7 @@
         "title": "Break Stuff",
         "artist": "Limp Bizkit",
         "description": "A Spotify song suggestion for your angry mood.",
-        "url": "https://open.spotify.com/track/5Jz8r4W1lf5Yz2tYb2Eo3f",
+        "url": "https://open.spotify.com/search/Break%20Stuff%20Limp%20Bizkit",
         "type": "song",
         "emotion": "angry"
     },
@@ -913,7 +913,7 @@
         "title": "Killing In The Name",
         "artist": "Rage Against The Machine",
         "description": "A Spotify song suggestion for your angry mood.",
-        "url": "https://open.spotify.com/track/5Jz8r4W1lf5Yz2tYb2Eo3f",
+        "url": "https://open.spotify.com/search/Killing%20In%20The%20Name%20Rage%20Against%20The%20Machine",
         "type": "song",
         "emotion": "angry"
     },
@@ -922,7 +922,7 @@
         "title": "Duality",
         "artist": "Slipknot",
         "description": "A Spotify song suggestion for your angry mood.",
-        "url": "https://open.spotify.com/track/5Jz8r4W1lf5Yz2tYb2Eo3f",
+        "url": "https://open.spotify.com/search/Duality%20Slipknot",
         "type": "song",
         "emotion": "angry"
     },
@@ -931,7 +931,7 @@
         "title": "Down With The Sickness",
         "artist": "Disturbed",
         "description": "A Spotify song suggestion for your angry mood.",
-        "url": "https://open.spotify.com/track/5Jz8r4W1lf5Yz2tYb2Eo3f",
+        "url": "https://open.spotify.com/search/Down%20With%20The%20Sickness%20Disturbed",
         "type": "song",
         "emotion": "angry"
     },
@@ -940,7 +940,7 @@
         "title": "Bodies",
         "artist": "Drowning Pool",
         "description": "A Spotify song suggestion for your angry mood.",
-        "url": "https://open.spotify.com/track/5Jz8r4W1lf5Yz2tYb2Eo3f",
+        "url": "https://open.spotify.com/search/Bodies%20Drowning%20Pool",
         "type": "song",
         "emotion": "angry"
     },
@@ -949,7 +949,7 @@
         "title": "Smells Like Teen Spirit",
         "artist": "Nirvana",
         "description": "A Spotify song suggestion for your angry mood.",
-        "url": "https://open.spotify.com/track/5Jz8r4W1lf5Yz2tYb2Eo3f",
+        "url": "https://open.spotify.com/search/Smells%20Like%20Teen%20Spirit%20Nirvana",
         "type": "song",
         "emotion": "angry"
     },
@@ -958,7 +958,7 @@
         "title": "My Generation",
         "artist": "Limp Bizkit",
         "description": "A Spotify song suggestion for your angry mood.",
-        "url": "https://open.spotify.com/track/5Jz8r4W1lf5Yz2tYb2Eo3f",
+        "url": "https://open.spotify.com/search/My%20Generation%20Limp%20Bizkit",
         "type": "song",
         "emotion": "angry"
     },
@@ -967,7 +967,7 @@
         "title": "Before I Forget",
         "artist": "Slipknot",
         "description": "A Spotify song suggestion for your angry mood.",
-        "url": "https://open.spotify.com/track/5Jz8r4W1lf5Yz2tYb2Eo3f",
+        "url": "https://open.spotify.com/search/Before%20I%20Forget%20Slipknot",
         "type": "song",
         "emotion": "angry"
     },
@@ -976,7 +976,7 @@
         "title": "Bulls on Parade",
         "artist": "Rage Against The Machine",
         "description": "A Spotify song suggestion for your angry mood.",
-        "url": "https://open.spotify.com/track/5Jz8r4W1lf5Yz2tYb2Eo3f",
+        "url": "https://open.spotify.com/search/Bulls%20on%20Parade%20Rage%20Against%20The%20Machine",
         "type": "song",
         "emotion": "angry"
     },
@@ -985,7 +985,7 @@
         "title": "Papercut",
         "artist": "Linkin Park",
         "description": "A Spotify song suggestion for your angry mood.",
-        "url": "https://open.spotify.com/track/5Jz8r4W1lf5Yz2tYb2Eo3f",
+        "url": "https://open.spotify.com/search/Papercut%20Linkin%20Park",
         "type": "song",
         "emotion": "angry"
     },
@@ -994,7 +994,7 @@
         "title": "Thriller",
         "artist": "Michael Jackson",
         "description": "A Spotify song suggestion for your scared mood.",
-        "url": "https://open.spotify.com/track/1zfzka5Vqk6xS3s0FEMlkJ",
+        "url": "https://open.spotify.com/search/Thriller%20Michael%20Jackson",
         "type": "song",
         "emotion": "scared"
     },
@@ -1003,7 +1003,7 @@
         "title": "Somebody's Watching Me",
         "artist": "Rockwell",
         "description": "A Spotify song suggestion for your scared mood.",
-        "url": "https://open.spotify.com/track/1zfzka5Vqk6xS3s0FEMlkJ",
+        "url": "https://open.spotify.com/search/Somebody's%20Watching%20Me%20Rockwell",
         "type": "song",
         "emotion": "scared"
     },
@@ -1012,7 +1012,7 @@
         "title": "Disturbia",
         "artist": "Rihanna",
         "description": "A Spotify song suggestion for your scared mood.",
-        "url": "https://open.spotify.com/track/1zfzka5Vqk6xS3s0FEMlkJ",
+        "url": "https://open.spotify.com/search/Disturbia%20Rihanna",
         "type": "song",
         "emotion": "scared"
     },
@@ -1021,7 +1021,7 @@
         "title": "Bury a Friend",
         "artist": "Billie Eilish",
         "description": "A Spotify song suggestion for your scared mood.",
-        "url": "https://open.spotify.com/track/1zfzka5Vqk6xS3s0FEMlkJ",
+        "url": "https://open.spotify.com/search/Bury%20a%20Friend%20Billie%20Eilish",
         "type": "song",
         "emotion": "scared"
     },
@@ -1030,7 +1030,7 @@
         "title": "Haunted",
         "artist": "Beyonc\u00e9",
         "description": "A Spotify song suggestion for your scared mood.",
-        "url": "https://open.spotify.com/track/1zfzka5Vqk6xS3s0FEMlkJ",
+        "url": "https://open.spotify.com/search/Haunted%20Beyonc\u00e9",
         "type": "song",
         "emotion": "scared"
     },
@@ -1039,7 +1039,7 @@
         "title": "Ghostbusters",
         "artist": "Ray Parker Jr.",
         "description": "A Spotify song suggestion for your scared mood.",
-        "url": "https://open.spotify.com/track/1zfzka5Vqk6xS3s0FEMlkJ",
+        "url": "https://open.spotify.com/search/Ghostbusters%20Ray%20Parker%20Jr.",
         "type": "song",
         "emotion": "scared"
     },
@@ -1048,7 +1048,7 @@
         "title": "Monster",
         "artist": "Lady Gaga",
         "description": "A Spotify song suggestion for your scared mood.",
-        "url": "https://open.spotify.com/track/1zfzka5Vqk6xS3s0FEMlkJ",
+        "url": "https://open.spotify.com/search/Monster%20Lady%20Gaga",
         "type": "song",
         "emotion": "scared"
     },
@@ -1057,7 +1057,7 @@
         "title": "Spooky, Scary Skeletons",
         "artist": "Andrew Gold",
         "description": "A Spotify song suggestion for your scared mood.",
-        "url": "https://open.spotify.com/track/1zfzka5Vqk6xS3s0FEMlkJ",
+        "url": "https://open.spotify.com/search/Spooky,%20Scary%20Skeletons%20Andrew%20Gold",
         "type": "song",
         "emotion": "scared"
     },
@@ -1066,7 +1066,7 @@
         "title": "Creep",
         "artist": "Radiohead",
         "description": "A Spotify song suggestion for your scared mood.",
-        "url": "https://open.spotify.com/track/1zfzka5Vqk6xS3s0FEMlkJ",
+        "url": "https://open.spotify.com/search/Creep%20Radiohead",
         "type": "song",
         "emotion": "scared"
     },
@@ -1075,7 +1075,7 @@
         "title": "She Wolf",
         "artist": "Shakira",
         "description": "A Spotify song suggestion for your scared mood.",
-        "url": "https://open.spotify.com/track/1zfzka5Vqk6xS3s0FEMlkJ",
+        "url": "https://open.spotify.com/search/She%20Wolf%20Shakira",
         "type": "song",
         "emotion": "scared"
     },
@@ -1084,7 +1084,7 @@
         "title": "All of Me",
         "artist": "John Legend",
         "description": "A Spotify song suggestion for your romantic mood.",
-        "url": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v",
+        "url": "https://open.spotify.com/search/All%20of%20Me%20John%20Legend",
         "type": "song",
         "emotion": "romantic"
     },
@@ -1093,7 +1093,7 @@
         "title": "Perfect",
         "artist": "Ed Sheeran",
         "description": "A Spotify song suggestion for your romantic mood.",
-        "url": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v",
+        "url": "https://open.spotify.com/search/Perfect%20Ed%20Sheeran",
         "type": "song",
         "emotion": "romantic"
     },
@@ -1102,7 +1102,7 @@
         "title": "I Will Always Love You",
         "artist": "Whitney Houston",
         "description": "A Spotify song suggestion for your romantic mood.",
-        "url": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v",
+        "url": "https://open.spotify.com/search/I%20Will%20Always%20Love%20You%20Whitney%20Houston",
         "type": "song",
         "emotion": "romantic"
     },
@@ -1111,7 +1111,7 @@
         "title": "Thinking Out Loud",
         "artist": "Ed Sheeran",
         "description": "A Spotify song suggestion for your romantic mood.",
-        "url": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v",
+        "url": "https://open.spotify.com/search/Thinking%20Out%20Loud%20Ed%20Sheeran",
         "type": "song",
         "emotion": "romantic"
     },
@@ -1120,7 +1120,7 @@
         "title": "Can't Help Falling in Love",
         "artist": "Elvis Presley",
         "description": "A Spotify song suggestion for your romantic mood.",
-        "url": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v",
+        "url": "https://open.spotify.com/search/Can't%20Help%20Falling%20in%20Love%20Elvis%20Presley",
         "type": "song",
         "emotion": "romantic"
     },
@@ -1129,7 +1129,7 @@
         "title": "Just The Way You Are",
         "artist": "Bruno Mars",
         "description": "A Spotify song suggestion for your romantic mood.",
-        "url": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v",
+        "url": "https://open.spotify.com/search/Just%20The%20Way%20You%20Are%20Bruno%20Mars",
         "type": "song",
         "emotion": "romantic"
     },
@@ -1138,7 +1138,7 @@
         "title": "At Last",
         "artist": "Etta James",
         "description": "A Spotify song suggestion for your romantic mood.",
-        "url": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v",
+        "url": "https://open.spotify.com/search/At%20Last%20Etta%20James",
         "type": "song",
         "emotion": "romantic"
     },
@@ -1147,7 +1147,7 @@
         "title": "Make You Feel My Love",
         "artist": "Adele",
         "description": "A Spotify song suggestion for your romantic mood.",
-        "url": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v",
+        "url": "https://open.spotify.com/search/Make%20You%20Feel%20My%20Love%20Adele",
         "type": "song",
         "emotion": "romantic"
     },
@@ -1156,7 +1156,7 @@
         "title": "Love Story",
         "artist": "Taylor Swift",
         "description": "A Spotify song suggestion for your romantic mood.",
-        "url": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v",
+        "url": "https://open.spotify.com/search/Love%20Story%20Taylor%20Swift",
         "type": "song",
         "emotion": "romantic"
     },
@@ -1165,7 +1165,7 @@
         "title": "Marry Me",
         "artist": "Train",
         "description": "A Spotify song suggestion for your romantic mood.",
-        "url": "https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v",
+        "url": "https://open.spotify.com/search/Marry%20Me%20Train",
         "type": "song",
         "emotion": "romantic"
     },
@@ -1174,7 +1174,7 @@
         "title": "Weightless",
         "artist": "Marconi Union",
         "description": "A Spotify song suggestion for your relaxed mood.",
-        "url": "https://open.spotify.com/track/3Ofmpyhv5UAQ70mENzB277",
+        "url": "https://open.spotify.com/search/Weightless%20Marconi%20Union",
         "type": "song",
         "emotion": "relaxed"
     },
@@ -1183,7 +1183,7 @@
         "title": "Sunset Lover",
         "artist": "Petit Biscuit",
         "description": "A Spotify song suggestion for your relaxed mood.",
-        "url": "https://open.spotify.com/track/3Ofmpyhv5UAQ70mENzB277",
+        "url": "https://open.spotify.com/search/Sunset%20Lover%20Petit%20Biscuit",
         "type": "song",
         "emotion": "relaxed"
     },
@@ -1192,7 +1192,7 @@
         "title": "Ocean Eyes",
         "artist": "Billie Eilish",
         "description": "A Spotify song suggestion for your relaxed mood.",
-        "url": "https://open.spotify.com/track/3Ofmpyhv5UAQ70mENzB277",
+        "url": "https://open.spotify.com/search/Ocean%20Eyes%20Billie%20Eilish",
         "type": "song",
         "emotion": "relaxed"
     },
@@ -1201,7 +1201,7 @@
         "title": "Bloom",
         "artist": "The Paper Kites",
         "description": "A Spotify song suggestion for your relaxed mood.",
-        "url": "https://open.spotify.com/track/3Ofmpyhv5UAQ70mENzB277",
+        "url": "https://open.spotify.com/search/Bloom%20The%20Paper%20Kites",
         "type": "song",
         "emotion": "relaxed"
     },
@@ -1210,7 +1210,7 @@
         "title": "Banana Pancakes",
         "artist": "Jack Johnson",
         "description": "A Spotify song suggestion for your relaxed mood.",
-        "url": "https://open.spotify.com/track/3Ofmpyhv5UAQ70mENzB277",
+        "url": "https://open.spotify.com/search/Banana%20Pancakes%20Jack%20Johnson",
         "type": "song",
         "emotion": "relaxed"
     },
@@ -1219,7 +1219,7 @@
         "title": "Lovely",
         "artist": "Billie Eilish & Khalid",
         "description": "A Spotify song suggestion for your relaxed mood.",
-        "url": "https://open.spotify.com/track/3Ofmpyhv5UAQ70mENzB277",
+        "url": "https://open.spotify.com/search/Lovely%20Billie%20Eilish%20&%20Khalid",
         "type": "song",
         "emotion": "relaxed"
     },
@@ -1228,7 +1228,7 @@
         "title": "Put It All On Me",
         "artist": "Ed Sheeran",
         "description": "A Spotify song suggestion for your relaxed mood.",
-        "url": "https://open.spotify.com/track/3Ofmpyhv5UAQ70mENzB277",
+        "url": "https://open.spotify.com/search/Put%20It%20All%20On%20Me%20Ed%20Sheeran",
         "type": "song",
         "emotion": "relaxed"
     },
@@ -1237,7 +1237,7 @@
         "title": "Lost in Japan",
         "artist": "Shawn Mendes",
         "description": "A Spotify song suggestion for your relaxed mood.",
-        "url": "https://open.spotify.com/track/3Ofmpyhv5UAQ70mENzB277",
+        "url": "https://open.spotify.com/search/Lost%20in%20Japan%20Shawn%20Mendes",
         "type": "song",
         "emotion": "relaxed"
     },
@@ -1246,7 +1246,7 @@
         "title": "Island In The Sun",
         "artist": "Weezer",
         "description": "A Spotify song suggestion for your relaxed mood.",
-        "url": "https://open.spotify.com/track/3Ofmpyhv5UAQ70mENzB277",
+        "url": "https://open.spotify.com/search/Island%20In%20The%20Sun%20Weezer",
         "type": "song",
         "emotion": "relaxed"
     },
@@ -1255,7 +1255,7 @@
         "title": "Good Morning",
         "artist": "Kanye West",
         "description": "A Spotify song suggestion for your relaxed mood.",
-        "url": "https://open.spotify.com/track/3Ofmpyhv5UAQ70mENzB277",
+        "url": "https://open.spotify.com/search/Good%20Morning%20Kanye%20West",
         "type": "song",
         "emotion": "relaxed"
     },
@@ -1264,7 +1264,7 @@
         "title": "Boulevard of Broken Dreams",
         "artist": "Green Day",
         "description": "A Spotify song suggestion for your lost mood.",
-        "url": "https://open.spotify.com/track/5AyEXCtuYybv20QovpGOLM",
+        "url": "https://open.spotify.com/search/Boulevard%20of%20Broken%20Dreams%20Green%20Day",
         "type": "song",
         "emotion": "lost"
     },
@@ -1273,7 +1273,7 @@
         "title": "Lost",
         "artist": "Frank Ocean",
         "description": "A Spotify song suggestion for your lost mood.",
-        "url": "https://open.spotify.com/track/5AyEXCtuYybv20QovpGOLM",
+        "url": "https://open.spotify.com/search/Lost%20Frank%20Ocean",
         "type": "song",
         "emotion": "lost"
     },
@@ -1282,7 +1282,7 @@
         "title": "Somewhere I Belong",
         "artist": "Linkin Park",
         "description": "A Spotify song suggestion for your lost mood.",
-        "url": "https://open.spotify.com/track/5AyEXCtuYybv20QovpGOLM",
+        "url": "https://open.spotify.com/search/Somewhere%20I%20Belong%20Linkin%20Park",
         "type": "song",
         "emotion": "lost"
     },
@@ -1291,7 +1291,7 @@
         "title": "Chasing Cars",
         "artist": "Snow Patrol",
         "description": "A Spotify song suggestion for your lost mood.",
-        "url": "https://open.spotify.com/track/5AyEXCtuYybv20QovpGOLM",
+        "url": "https://open.spotify.com/search/Chasing%20Cars%20Snow%20Patrol",
         "type": "song",
         "emotion": "lost"
     },
@@ -1300,7 +1300,7 @@
         "title": "Lost Stars",
         "artist": "Adam Levine",
         "description": "A Spotify song suggestion for your lost mood.",
-        "url": "https://open.spotify.com/track/5AyEXCtuYybv20QovpGOLM",
+        "url": "https://open.spotify.com/search/Lost%20Stars%20Adam%20Levine",
         "type": "song",
         "emotion": "lost"
     },
@@ -1309,7 +1309,7 @@
         "title": "Unwell",
         "artist": "Matchbox Twenty",
         "description": "A Spotify song suggestion for your lost mood.",
-        "url": "https://open.spotify.com/track/5AyEXCtuYybv20QovpGOLM",
+        "url": "https://open.spotify.com/search/Unwell%20Matchbox%20Twenty",
         "type": "song",
         "emotion": "lost"
     },
@@ -1318,7 +1318,7 @@
         "title": "Runaway Train",
         "artist": "Soul Asylum",
         "description": "A Spotify song suggestion for your lost mood.",
-        "url": "https://open.spotify.com/track/5AyEXCtuYybv20QovpGOLM",
+        "url": "https://open.spotify.com/search/Runaway%20Train%20Soul%20Asylum",
         "type": "song",
         "emotion": "lost"
     },
@@ -1327,7 +1327,7 @@
         "title": "Lost Without You",
         "artist": "Freya Ridings",
         "description": "A Spotify song suggestion for your lost mood.",
-        "url": "https://open.spotify.com/track/5AyEXCtuYybv20QovpGOLM",
+        "url": "https://open.spotify.com/search/Lost%20Without%20You%20Freya%20Ridings",
         "type": "song",
         "emotion": "lost"
     },
@@ -1336,7 +1336,7 @@
         "title": "The A Team",
         "artist": "Ed Sheeran",
         "description": "A Spotify song suggestion for your lost mood.",
-        "url": "https://open.spotify.com/track/5AyEXCtuYybv20QovpGOLM",
+        "url": "https://open.spotify.com/search/The%20A%20Team%20Ed%20Sheeran",
         "type": "song",
         "emotion": "lost"
     },
@@ -1345,7 +1345,7 @@
         "title": "Far Away",
         "artist": "Nickelback",
         "description": "A Spotify song suggestion for your lost mood.",
-        "url": "https://open.spotify.com/track/5AyEXCtuYybv20QovpGOLM",
+        "url": "https://open.spotify.com/search/Far%20Away%20Nickelback",
         "type": "song",
         "emotion": "lost"
     },
@@ -1354,7 +1354,7 @@
         "title": "Breathe Me",
         "artist": "Sia",
         "description": "A Spotify song suggestion for your stressed mood.",
-        "url": "https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2",
+        "url": "https://open.spotify.com/search/Breathe%20Me%20Sia",
         "type": "song",
         "emotion": "stressed"
     },
@@ -1363,7 +1363,7 @@
         "title": "Don't Panic",
         "artist": "Coldplay",
         "description": "A Spotify song suggestion for your stressed mood.",
-        "url": "https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2",
+        "url": "https://open.spotify.com/search/Don't%20Panic%20Coldplay",
         "type": "song",
         "emotion": "stressed"
     },
@@ -1372,7 +1372,7 @@
         "title": "Shake It Out",
         "artist": "Florence + The Machine",
         "description": "A Spotify song suggestion for your stressed mood.",
-        "url": "https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2",
+        "url": "https://open.spotify.com/search/Shake%20It%20Out%20Florence%20+%20The%20Machine",
         "type": "song",
         "emotion": "stressed"
     },
@@ -1381,7 +1381,7 @@
         "title": "Carry On",
         "artist": "fun.",
         "description": "A Spotify song suggestion for your stressed mood.",
-        "url": "https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2",
+        "url": "https://open.spotify.com/search/Carry%20On%20fun.",
         "type": "song",
         "emotion": "stressed"
     },
@@ -1390,7 +1390,7 @@
         "title": "Let It Be",
         "artist": "The Beatles",
         "description": "A Spotify song suggestion for your stressed mood.",
-        "url": "https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2",
+        "url": "https://open.spotify.com/search/Let%20It%20Be%20The%20Beatles",
         "type": "song",
         "emotion": "stressed"
     },
@@ -1399,7 +1399,7 @@
         "title": "Under Pressure",
         "artist": "Queen & David Bowie",
         "description": "A Spotify song suggestion for your stressed mood.",
-        "url": "https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2",
+        "url": "https://open.spotify.com/search/Under%20Pressure%20Queen%20&%20David%20Bowie",
         "type": "song",
         "emotion": "stressed"
     },
@@ -1408,7 +1408,7 @@
         "title": "Here Comes The Sun",
         "artist": "The Beatles",
         "description": "A Spotify song suggestion for your stressed mood.",
-        "url": "https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2",
+        "url": "https://open.spotify.com/search/Here%20Comes%20The%20Sun%20The%20Beatles",
         "type": "song",
         "emotion": "stressed"
     },
@@ -1417,7 +1417,7 @@
         "title": "High Hopes",
         "artist": "Panic! At The Disco",
         "description": "A Spotify song suggestion for your stressed mood.",
-        "url": "https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2",
+        "url": "https://open.spotify.com/search/High%20Hopes%20Panic!%20At%20The%20Disco",
         "type": "song",
         "emotion": "stressed"
     },
@@ -1426,7 +1426,7 @@
         "title": "Lean On Me",
         "artist": "Bill Withers",
         "description": "A Spotify song suggestion for your stressed mood.",
-        "url": "https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2",
+        "url": "https://open.spotify.com/search/Lean%20On%20Me%20Bill%20Withers",
         "type": "song",
         "emotion": "stressed"
     },
@@ -1435,7 +1435,7 @@
         "title": "Rise Up",
         "artist": "Andra Day",
         "description": "A Spotify song suggestion for your stressed mood.",
-        "url": "https://open.spotify.com/track/6dGnYIeXmHdcikdzNNDMm2",
+        "url": "https://open.spotify.com/search/Rise%20Up%20Andra%20Day",
         "type": "song",
         "emotion": "stressed"
     },
@@ -1444,7 +1444,7 @@
         "title": "River Flows in You",
         "artist": "Yiruma",
         "description": "A Spotify song suggestion for your sleepy mood.",
-        "url": "https://open.spotify.com/track/7qD8bspQhiZUTfqdLBq32Q",
+        "url": "https://open.spotify.com/search/River%20Flows%20in%20You%20Yiruma",
         "type": "song",
         "emotion": "sleepy"
     },
@@ -1453,7 +1453,7 @@
         "title": "Clair de Lune",
         "artist": "Claude Debussy",
         "description": "A Spotify song suggestion for your sleepy mood.",
-        "url": "https://open.spotify.com/track/7qD8bspQhiZUTfqdLBq32Q",
+        "url": "https://open.spotify.com/search/Clair%20de%20Lune%20Claude%20Debussy",
         "type": "song",
         "emotion": "sleepy"
     },
@@ -1462,7 +1462,7 @@
         "title": "Nocturne op.9 No.2",
         "artist": "Fr\u00e9d\u00e9ric Chopin",
         "description": "A Spotify song suggestion for your sleepy mood.",
-        "url": "https://open.spotify.com/track/7qD8bspQhiZUTfqdLBq32Q",
+        "url": "https://open.spotify.com/search/Nocturne%20op.9%20No.2%20Fr\u00e9d\u00e9ric%20Chopin",
         "type": "song",
         "emotion": "sleepy"
     },
@@ -1471,7 +1471,7 @@
         "title": "Weightless",
         "artist": "Marconi Union",
         "description": "A Spotify song suggestion for your sleepy mood.",
-        "url": "https://open.spotify.com/track/7qD8bspQhiZUTfqdLBq32Q",
+        "url": "https://open.spotify.com/search/Weightless%20Marconi%20Union",
         "type": "song",
         "emotion": "sleepy"
     },
@@ -1480,7 +1480,7 @@
         "title": "Gymnop\u00e9die No.1",
         "artist": "Erik Satie",
         "description": "A Spotify song suggestion for your sleepy mood.",
-        "url": "https://open.spotify.com/track/7qD8bspQhiZUTfqdLBq32Q",
+        "url": "https://open.spotify.com/search/Gymnop\u00e9die%20No.1%20Erik%20Satie",
         "type": "song",
         "emotion": "sleepy"
     },
@@ -1489,7 +1489,7 @@
         "title": "Comptine d\u2019un autre \u00e9t\u00e9",
         "artist": "Yann Tiersen",
         "description": "A Spotify song suggestion for your sleepy mood.",
-        "url": "https://open.spotify.com/track/7qD8bspQhiZUTfqdLBq32Q",
+        "url": "https://open.spotify.com/search/Comptine%20d\u2019un%20autre%20\u00e9t\u00e9%20Yann%20Tiersen",
         "type": "song",
         "emotion": "sleepy"
     },
@@ -1498,7 +1498,7 @@
         "title": "Experience",
         "artist": "Ludovico Einaudi",
         "description": "A Spotify song suggestion for your sleepy mood.",
-        "url": "https://open.spotify.com/track/7qD8bspQhiZUTfqdLBq32Q",
+        "url": "https://open.spotify.com/search/Experience%20Ludovico%20Einaudi",
         "type": "song",
         "emotion": "sleepy"
     },
@@ -1507,7 +1507,7 @@
         "title": "Nuvole Bianche",
         "artist": "Ludovico Einaudi",
         "description": "A Spotify song suggestion for your sleepy mood.",
-        "url": "https://open.spotify.com/track/7qD8bspQhiZUTfqdLBq32Q",
+        "url": "https://open.spotify.com/search/Nuvole%20Bianche%20Ludovico%20Einaudi",
         "type": "song",
         "emotion": "sleepy"
     },
@@ -1516,7 +1516,7 @@
         "title": "Kiss the Rain",
         "artist": "Yiruma",
         "description": "A Spotify song suggestion for your sleepy mood.",
-        "url": "https://open.spotify.com/track/7qD8bspQhiZUTfqdLBq32Q",
+        "url": "https://open.spotify.com/search/Kiss%20the%20Rain%20Yiruma",
         "type": "song",
         "emotion": "sleepy"
     },
@@ -1525,7 +1525,7 @@
         "title": "Spiegel im Spiegel",
         "artist": "Arvo P\u00e4rt",
         "description": "A Spotify song suggestion for your sleepy mood.",
-        "url": "https://open.spotify.com/track/7qD8bspQhiZUTfqdLBq32Q",
+        "url": "https://open.spotify.com/search/Spiegel%20im%20Spiegel%20Arvo%20P\u00e4rt",
         "type": "song",
         "emotion": "sleepy"
     },
@@ -2970,3 +2970,4 @@
         "emotion": "sleepy"
     }
 ]
+
