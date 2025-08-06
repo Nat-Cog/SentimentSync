@@ -43,14 +43,14 @@ struct EmotionSelectionView: View {
                         HStack {
                             TextField("e.g., 'I feel a bit stressed today'", text: $userMoodText)
                                 .padding(12)
-                                .background(Color(.systemGroupedBackground))
+                                .background(Color(.white))
                                 .cornerRadius(10)
                                 .onSubmit(determineMood)
 
                             Button(action: determineMood) {
                                 Image(systemName: "arrow.right.circle.fill")
                                     .font(.title)
-                                    .foregroundColor(.accentColor)
+                                    .foregroundColor(.blue)
                             }
                             .disabled(userMoodText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                         }
@@ -94,9 +94,17 @@ struct EmotionSelectionView: View {
                 }
                 .padding(.vertical)
             }
-            .background(Color(.systemGray6).edgesIgnoringSafeArea(.all))
+            .background(
+                LinearGradient(
+                    gradient: Gradient(colors: [Color(red: 0.85, green: 0.90, blue: 0.98), Color(red: 0.98, green: 0.90, blue: 0.95)]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+                .edgesIgnoringSafeArea(.all)
+            )
         }
         .navigationDestination(item: $determinedEmotion) { emotion in
+            // When navigating via text input, use the same ContentSuggestionsView
             ContentSuggestionsView(emotion: emotion)
         }
         .alert("Couldn't Determine Mood", isPresented: $showCouldNotDetermineMoodAlert) {

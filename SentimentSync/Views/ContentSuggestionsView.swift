@@ -5,6 +5,7 @@ struct ContentSuggestionsView: View {
     @StateObject private var viewModel = ContentViewModel()
     @State private var showEmotionSelection = false
     @State private var isMoodLogged = false
+    @State private var contentLoaded = false
     
     var body: some View {
         // By placing the navigationDestination on a container outside the ScrollView,
@@ -27,7 +28,7 @@ struct ContentSuggestionsView: View {
                     .padding(.horizontal)
                     
                     //If we want to guide user to a different emotion, in case of negative emotions.
-    //                let targetEmotion = emotion.suggestedContentEmotion
+//                let targetEmotion = emotion.suggestedContentEmotion
                     let targetEmotion = emotion
 
                     if viewModel.isLoading {
@@ -99,7 +100,11 @@ struct ContentSuggestionsView: View {
                 .padding(.vertical)
             }
             .onAppear {
-                viewModel.getContent(for: emotion)
+                // Only load content once
+                if !contentLoaded {
+                    viewModel.getContent(for: emotion)
+                    contentLoaded = true
+                }
             }
             .navigationTitle("Content Suggestions")
             .navigationBarTitleDisplayMode(.inline)
@@ -111,15 +116,10 @@ struct ContentSuggestionsView: View {
                 )
                 .edgesIgnoringSafeArea(.all)
             )
-            .refreshable {
-                viewModel.refreshContent()
-                viewModel.getContent(for: emotion)
-            }
+            // Removed refreshable modifier
         }
-        .navigationDestination(isPresented: $showEmotionSelection) {
-            EmotionSelectionView()
-                .navigationBarBackButtonHidden(true)
-        }
+        // Changed to use a back button instead of creating a new EmotionSelectionView
+        .navigationBarBackButtonHidden(false)
     }
 }
 

@@ -11,6 +11,12 @@ struct ContentDetailView: View {
 
     var body: some View {
         ScrollView {
+            LinearGradient(
+                gradient: Gradient(colors: [Color(red: 0.85, green: 0.90, blue: 0.98), Color(red: 0.98, green: 0.90, blue: 0.95)]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .edgesIgnoringSafeArea(.all)
             // Use a switch to provide a custom view for each content type
             switch item.type {
             case .quote:

@@ -7,8 +7,8 @@ class ContentViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var error: String?
     
-    // Cache of the last returned items to avoid duplicates
-    private var lastReturnedItems: [ContentType: ContentItem] = [:]
+    // Cache of selected items for each emotion and type
+    private var cachedItems: [String: [ContentType: ContentItem]] = [:]
     
     init() {
         loadContent()
@@ -34,16 +34,30 @@ class ContentViewModel: ObservableObject {
     }
     
     func getContentByType(for emotion: Emotion, type: ContentType) -> ContentItem? {
-        // Always get a fresh random selection
-        return ContentLoader.getContentByType(for: emotion, type: type, from: allContent)
+        let emotionKey = emotion.rawValue
+        
+        // If we haven't cached this emotion yet, initialize its cache
+        if cachedItems[emotionKey] == nil {
+            cachedItems[emotionKey] = [:]
+        }
+        
+        // If we already have a cached item for this emotion and type, return it
+        if let cachedItem = cachedItems[emotionKey]?[type] {
+            return cachedItem
+        }
+        
+        // Otherwise, get a random item and cache it
+        if let newItem = ContentLoader.getContentByType(for: emotion, type: type, from: allContent) {
+            cachedItems[emotionKey]?[type] = newItem
+            return newItem
+        }
+        
+        return nil
     }
     
     func refreshContent() {
-        // Force a refresh by clearing content caches
+        // Clear the cache to get fresh random selections
+        cachedItems = [:]
         contentForEmotion = []
-        lastReturnedItems = [:]
-        
-        // No need to reload all content from JSON again, as we just want new random selections
-        // from the existing content pool
     }
 } 
