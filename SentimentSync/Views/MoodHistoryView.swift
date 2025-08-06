@@ -35,7 +35,6 @@ struct MoodHistoryView: View {
             }
             .scrollContentBackground(.hidden)
             .navigationTitle("Mood History")
-            .onAppear(perform: loadHistory)
             .background(
                 LinearGradient(
                     gradient: Gradient(colors: [Color(red: 0.85, green: 0.90, blue: 0.98), Color(red: 0.98, green: 0.90, blue: 0.95)]),
