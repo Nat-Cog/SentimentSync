@@ -120,6 +120,10 @@ struct ContentSuggestionsView: View {
                 )
                 .edgesIgnoringSafeArea(.all)
             )
+            .refreshable {
+                viewModel.refreshContent()
+                viewModel.getContent(for: emotion)
+            }
             // Removed refreshable modifier
         }
         // Changed to use a back button instead of creating a new EmotionSelectionView
